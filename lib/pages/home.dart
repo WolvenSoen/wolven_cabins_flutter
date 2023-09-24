@@ -1,13 +1,15 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
   @override
-  //Build method is used for returning a widget, in this case
-  //we will return a scaffold widget, which is a widget that covers
-  //the whole screen, using nested widgets we can build a complex UI
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -32,8 +34,6 @@ class HomePage extends StatelessWidget {
                 Image.asset(
                   'assets/images/cabinOutside.jpg',
                   fit: BoxFit.cover,
-                  //ADDS BLACK OPACITY TO IMAGE,
-
                 ),
                 AnimatedTextKit(
                   animatedTexts: [
@@ -53,16 +53,6 @@ class HomePage extends StatelessWidget {
               ]
           )
         ],
-      ),
-      //Book Now section
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          //Navigate to the booking page
-          Navigator.pushNamed(context, '/booking');
-        },
-        label: const Text('Book Now'),
-        icon: const Icon(Icons.book_online),
-        backgroundColor: Colors.black,
       ),
     );
   }
