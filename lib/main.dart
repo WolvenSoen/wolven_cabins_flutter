@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wolven_cabins/pages/booking.dart';
 import 'package:wolven_cabins/pages/home.dart';
 
 void main() {
@@ -12,9 +13,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
+      theme: ThemeData(fontFamily: 'Montserrat'),
       //const keyword is used to declare that a page will be "static"
       home: const HomePage(),
+      //Routes are used to navigate between pages
+      routes: {
+        '/home': (context) => const HomePage(),
+        '/booking': (context) => const BookingPage(),
+      },
     );
   }
 }
